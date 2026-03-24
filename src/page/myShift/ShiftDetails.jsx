@@ -21,7 +21,7 @@ const ShiftDetails = () => {
       <div className="flex justify-between">
         <div className="flex items-center gap-2">
         <Navigate />
-        <h1 className="text-[16px] italic">Shift Details</h1>
+        <h1 className="text-[16px] italic font-montserrat">Shift Details</h1>
       </div>
        <Link to={'/dashboard/shifts/venueDetails'}>
         <button className="border flex gap-2 border-[#822CE7] text-[#822CE7] px-4 py-2 rounded-full text-sm">
