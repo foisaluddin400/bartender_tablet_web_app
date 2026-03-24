@@ -10,7 +10,7 @@ const VenueDetails = () => {
     <div className="px-4 pt-6 pb-11 text-white">
       <div className="flex items-center">
       <Navigate></Navigate>
-        <h1 className="text-[16px] italic text-white">Venue Details</h1>
+        <h1 className="text-[16px] italic text-white font-montserrat">Venue Details</h1>
         
       </div>
 

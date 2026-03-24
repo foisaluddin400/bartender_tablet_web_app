@@ -6,10 +6,11 @@ import LocationIco from "../../components/icon/LocationIco";
 import CalenderIco from "../../components/icon/CalenderIco";
 import image from "../../assets/header/image.png";
 import { Link } from "react-router-dom";
+import DetailsIco from "../../components/icon/DetailsIco";
 
 const tabs = ["Shift Requests", "Active", "Upcoming", "Completed"];
 
-// 🔥 Dummy Data (tab অনুযায়ী আলাদা)
+
 const shiftsData = {
   Active: [
     { id: 1, title: "Copper Alley Bar", status: "Active", price: "410.00" },
@@ -36,7 +37,7 @@ const ShiftCard = ({ item }) => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-[#1a0f2e] to-[#140a24] rounded-2xl p-4 border border-[#2A2448] shadow-lg">
+    <div className="bg-gradient-to-br from-[#1a0f2e] to-[#140a24] rounded-2xl p-3 border border-[#2A2448] shadow-lg">
       
       {/* Top */}
       <div className="flex items-center justify-between">
@@ -88,8 +89,8 @@ const ShiftCard = ({ item }) => {
         </div>
 
       <Link to={'/dashboard/shifts/details'}>
-        <button className="bg-gradient-to-r from-purple-600 to-purple-400 text-white px-5 py-2 rounded-full text-sm font-medium hover:opacity-90 transition">
-          View Details →
+        <button className="bg-gradient-to-br from-[#822CE7] to-[#BB82FF] text-white px-5 flex justify-between items-center gap-3 py-2 rounded-full text-sm font-medium hover:opacity-90 transition">
+          View Details <DetailsIco></DetailsIco>
         </button></Link>
       </div>
     </div>
@@ -100,7 +101,7 @@ const MyShifts = () => {
   const [activeTab, setActiveTab] = useState("Active");
 
   return (
-    <div className="min-h-screen bg-[#0b0618] p-6">
+    <div className="p-3">
       
       {/* Tabs */}
       <div className="flex gap-3 mb-6 flex-wrap">
@@ -108,10 +109,10 @@ const MyShifts = () => {
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`px-5 py-2 rounded-full text-sm font-medium transition
+            className={`px-5 py-2 rounded-full text-sm transition
               ${
                 activeTab === tab
-                  ? "bg-gradient-to-r from-purple-600 to-purple-400 text-white"
+                  ? "bg-gradient-to-br from-[#822CE7] to-[#BB82FF] text-white"
                   : "bg-[#1a0f2e] text-gray-300"
               }`}
           >

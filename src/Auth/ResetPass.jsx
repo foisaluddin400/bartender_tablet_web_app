@@ -15,7 +15,7 @@ const ResetPass = () => {
   };
 
   return (
-   <div className="flex justify-center items-center min-h-screen px-4 lg:px-0">
+   <div className="flex font-nunito justify-center items-center min-h-screen px-4 lg:px-0">
       <div className="w-full max-w-lg  lg:p-8 p-4 border">
         {/* Title */}
         <h2 className="text-2xl font-semibold text-gray-900 mb-2">
@@ -94,7 +94,7 @@ const ResetPass = () => {
            <button
               
               htmlType="submit"
-              className="w-full bg-red-500 py-3 text-white rounded-md hover:bg-primary-dark transition-colors"
+              className="w-full bg-red-500 py-3 text-white rounded-full hover:bg-primary-dark transition-colors"
             >
               Continue
             </button></Link>

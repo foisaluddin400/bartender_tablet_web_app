@@ -1,58 +1,50 @@
 import React, { useState } from "react";
-import { Form, Input, Button } from "antd";
-import { FaEye, FaEyeSlash, FaGoogle, FaFacebookF } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-
 const ForgetPass = () => {
-  
-  const [form] = Form.useForm();
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [email, setEmail] = useState("");
 
-  const onFinish = (values) => {
-    console.log("Form Values:", values);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Email:", email);
+    // Handle form submission here
   };
+
   return (
-    <div className="flex justify-center items-center min-h-screen px-4 lg:px-0">
-      <div className="w-full max-w-lg  lg:p-8 p-4 border">
+    <div className="flex font-nunito justify-center items-center min-h-screen px-4 lg:px-0 bg-[#0F0B1A]">
+      <div className="w-full max-w-lg p-8 border-[#2A2448] rounded-lg bg-[#822CE71A]">
         {/* Title */}
-        <h2 className="text-2xl font-semibold text-gray-900 mb-2">Sign In</h2>
-        <p className="text-gray-600 mb-6 text-sm">
-          Enter your email address or choose a different way to sign in to
-          Custom Ink.
+        <h2 className="text-2xl font-semibold text-white mb-2 italic">Forget Password</h2>
+        <p className="text-gray-400 mb-6 text-sm">
+Enter your registered email address and we’ll send you a verification code to reset your password.
         </p>
 
-        {/* Ant Design Form */}
-        <Form form={form} layout="vertical" onFinish={onFinish}>
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="space-y-4">
           {/* Email */}
-          <Form.Item
-            label="Enter Email Address"
-            name="email"
-            rules={[
-              { required: true, message: "Please enter your email!" },
-              { type: "email", message: "Enter a valid email!" },
-            ]}
-          >
-            <Input style={{height:'50px'}} placeholder="Enter Email Address" />
-          </Form.Item>
-
-       
+          <div>
+            <label className="text-gray-400 block mb-1">Enter Email Address</label>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter Email Address"
+              className="w-full px-3 py-2 bg-[#1D1733] border border-[#2A2448] text-white rounded-full focus:outline-none focus:ring-2 focus:ring-[#822CE7] placeholder-white/70"
+              required
+            />
+          </div>
 
           {/* Continue Button */}
-          <Form.Item>
-            <Link to={'/verification'}><button
-              
-              htmlType="submit"
-              className="w-full bg-red-500 py-3 text-white rounded-md hover:bg-primary-dark transition-colors"
+          <Link to={"/verification"}>
+            <button
+              type="submit"
+              className="w-full mt-3 bg-gradient-to-tr from-[#822CE7] to-[#BB82FF] py-3 text-white rounded-full shadow-md hover:opacity-90 transition"
             >
-              Continue
-            </button></Link>
-          </Form.Item>
-        </Form>
-
-        {/* Terms */}
-      
+            Send Verification Code
+            </button>
+          </Link>
+        </form>
       </div>
     </div>
   );

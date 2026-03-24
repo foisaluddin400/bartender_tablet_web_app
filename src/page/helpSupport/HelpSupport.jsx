@@ -12,14 +12,17 @@ const HelpSupport = () => {
   };
 
   return (
-    <div className="p-3 h-[87vh] overflow-auto">
-      <Navigate title="Help & Support" />
+    <div className="p-3 ">
+          <div className="flex items-center py-4 ">
+                   <Navigate></Navigate>
+                   <h1 className="text-[16px] italic font-montserrat text-white">Help & Support </h1>
+                 </div>
 
       {/* Venue Details */}
-      <div className="mt-6 border text-white border-[#2A2448] rounded-xl space-y-3">
+      <div className="border text-white border-[#2A2448] rounded-xl space-y-3">
         <div className="border-b border-[#2A2448] p-3">
-          <h1 className="text-xl font-semibold pb-1">Contact Support</h1>
-          <p className="text-[#C9C6D6]">Send us your questions or concerns, and our team will get back to you.</p>
+          <h1 className=" font-semibold pb-1 italic text-[18px]">Contact Support</h1>
+          <p className="text-[#C9C6D6] italic">Send us your questions or concerns, and our team will get back to you.</p>
         </div>
 
         <div className="p-4">

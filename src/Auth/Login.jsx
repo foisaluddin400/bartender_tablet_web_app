@@ -1,107 +1,101 @@
-
 import React, { useState } from "react";
-import { Form, Input, Button, Checkbox } from "antd";
-import { FaEye, FaEyeSlash, FaGoogle, FaFacebookF } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Login = () => {
-
-    const [form] = Form.useForm();
+  const [formValues, setFormValues] = useState({ email: "", password: "", remember: false });
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const onFinish = (values) => {
-    console.log("Form Values:", values);
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormValues((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
   };
-  
-  // const onFinish = async (values) => {
-  //   setLoading(true);
-  //   try {
-  //     console.log("Form Values:", values);
-  //     const payload = await loginAdmin(values).unwrap();
-  //     console.log("API Response:", payload);
-  //     if (payload?.success) {
-  //       // localStorage.setItem("accessToken", payload?.data?.accessToken);
-  //       dispatch(setToken(payload?.data?.accessToken))
-  //       message.success("Login successful!");
-  //       navigate("/");
-  //     } else {
-  //       message.error(payload?.message || "Login failed!");
-  //     }
-  //   } catch (error) {
-  //     console.error("Login error:", error);
-  //     message.error(error?.data?.message || "Something went wrong. Try again!");
-  //   } finally {
-  //     setLoading(false);
-  //     console.log("Login attempt finished.");
-  //   }
-  // };
 
-  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form Values:", formValues);
+    // Here you can handle API login
+  };
+
   return (
- <div className="flex justify-center items-center min-h-screen px-4 lg:px-0">
-      <div className="w-full max-w-lg  lg:p-8 p-4 border border-[#2A2448] rounded-lg bg-[#0F0B1A]">
+    <div className="flex font-nunito justify-center items-center min-h-screen px-4 lg:px-0 bg-[#0F0B1A]">
+      <div className="w-full max-w-lg lg:p-8 p-4 border border-[#2A2448] rounded-lg bg-[#822CE71A]">
         {/* Title */}
-        <h2 className="text-2xl font-semibold text-white mb-2">Sign In</h2>
+        <h2 className="text-2xl font-semibold text-white mb-2 italic">Welcome Back</h2>
         <p className="text-gray-400 mb-6 text-sm">
-          Enter your email address or choose a different way to sign in to
-          Custom Ink.
+          Sign in to continue exploring and managing your Venue.
         </p>
 
-        {/* Ant Design Form */}
-        <Form form={form} layout="vertical" onFinish={onFinish} className="custom-form">
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="space-y-4">
           {/* Email */}
-          <Form.Item
-            label="Enter Email Address"
-            name="email"
-            rules={[
-              { required: true, message: "Please enter your email!" },
-              { type: "email", message: "Enter a valid email!" },
-            ]}
-          >
-            <Input
-              className="custom-input"
+          <div>
+            <label className="text-gray-400 block mb-1">Enter Email Address</label>
+            <input
+              type="email"
+              name="email"
+              value={formValues.email}
+              onChange={handleChange}
               placeholder="Enter Email Address"
+              className="w-full px-3 py-2 bg-[#1D1733] border border-[#2A2448] text-white rounded-full focus:outline-none focus:ring-2 focus:ring-[#822CE7] placeholder-white/70"
+              required
             />
-          </Form.Item>
+          </div>
 
-          <Form.Item
-            label="Password"
-            name="password"
-            rules={[{ required: true, message: "Please input your password!" }]}
-          >
-            <Input.Password
-             className="custom-input"
-              
-              placeholder="••••••••"
-            />
-          </Form.Item>
+          {/* Password */}
+          <div>
+            <label className="text-gray-400 block mb-1">Password</label>
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                value={formValues.password}
+                onChange={handleChange}
+                placeholder="••••••••"
+                className="w-full px-3 py-2 bg-[#1D1733] border border-[#2A2448] text-white rounded-full focus:outline-none focus:ring-2 focus:ring-[#822CE7] placeholder-white/70"
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
+              >
+                {showPassword ? "🙈" : "👁️"}
+              </button>
+            </div>
+          </div>
 
+          {/* Remember & Forgot */}
           <div className="flex items-center justify-between mb-4">
-            <Form.Item name="remember" valuePropName="checked" noStyle>
-              <Checkbox className="text-gray-700">Remember me</Checkbox>
-            </Form.Item>
+            <label className="flex items-center gap-2 text-gray-400">
+              <input
+                type="checkbox"
+                name="remember"
+                checked={formValues.remember}
+                onChange={handleChange}
+                className="accent-[#822CE7]"
+              />
+              Remember me
+            </label>
             <Link
               to={"/forgot-password"}
-              className="text-sm text-[#2F799E] hover:underline focus:outline-none"
+              className="text-sm text-[#9D5BFF] hover:underline focus:outline-none"
             >
               Forget password?
             </Link>
           </div>
 
-          {/* Continue Button */}
-          <Form.Item>
-            <button
-              htmlType="submit"
-              className="w-full bg-gradient-to-tr  from-[#822CE7] to-[#BB82FF] text-white shadow-md px-3 py-2 rounded-full"
-            >
-              Login
-            </button>
-          </Form.Item>
-        </Form>
-
-
-       
+          {/* Login Button */}
+          <button
+            type="submit"
+            className="w-full bg-gradient-to-tr from-[#822CE7] to-[#BB82FF] text-white shadow-md px-3 py-2 rounded-full"
+          >
+            Login
+          </button>
+        </form>
+        <span className="flex justify-center pt-2 text-white">No account yet?  <Link to={'/joinAs'}><span className="text-[#822CE7]"> Create an account</span></Link></span>
       </div>
     </div>
   );

@@ -37,6 +37,13 @@ import BartenderDetails from "../page/manageShifts/BartenderDetails";
 import MyShifts from "../page/myShift/MyShifts";
 import ShiftDetails from "../page/myShift/ShiftDetails";
 import VenueDetails from "../page/myShift/VenueDetails";
+import MyProfile from "../page/venuwProfile/MyProfile";
+import AccountSetting from "../page/venuwProfile/AccountSetting";
+import PassWordChange from "../page/venuwProfile/PassWordChange";
+import RegisterVerify from "../Auth/RegisterVerify";
+import ConnectStripe from "../Auth/ConnectStripe";
+import CompleteProfile from "../Auth/CompleteProfile";
+import JoinAs from "../Auth/JoinAs";
 
 
 export const router = createBrowserRouter([
@@ -114,8 +121,20 @@ export const router = createBrowserRouter([
         path: "/dashboard/VenueProfile",
         element: <VenueProfile></VenueProfile>,
       },
+        {
+        path: "/dashboard/myProfile",
+        element: <MyProfile></MyProfile>
+      },
+     {
+        path: "/dashboard/accountSetting",
+        element: <AccountSetting></AccountSetting>
+      },
       {
-        path: "/dashboard/UpdateVenueProfile",
+        path: "/dashboard/change_password",
+        element: <PassWordChange></PassWordChange>
+      },
+      {
+        path: "/dashboard/UpdateProfile",
         element: <UpdateVenyeProfile></UpdateVenyeProfile>,
       },
       {
@@ -184,16 +203,29 @@ export const router = createBrowserRouter([
         path: "/dashboard/Settings/PrivacyPolicy",
         element: <PrivacyPolicy></PrivacyPolicy>,
       },
-    ],
-  },
-
-  {
+      {
     path: "/login",
     element: <Login></Login>,
   },
   {
+    path: "/joinAs",
+    element: <JoinAs></JoinAs>,
+  },
+   {
+    path: "/completeProfile",
+    element: <CompleteProfile></CompleteProfile>,
+  },
+   {
+    path: "/connectStripe",
+    element: <ConnectStripe></ConnectStripe>,
+  },
+  {
     path: "/forgot-password",
     element: <ForgetPass></ForgetPass>,
+  },
+   {
+    path: "/registerVerify",
+    element: <RegisterVerify></RegisterVerify>,
   },
   {
     path: "/verification",
@@ -203,4 +235,8 @@ export const router = createBrowserRouter([
     path: "/reset-password",
     element: <ResetPass></ResetPass>,
   },
+    ],
+  },
+
+
 ]);

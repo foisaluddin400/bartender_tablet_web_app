@@ -7,7 +7,7 @@ import ShopDetailsIco from "../../components/icon/ShopDetailsIco";
 import { Navigate } from "../../Navigate";
 
 const Box = ({ title, value }) => (
-  <div className="mt-4 bg-[#1A0E2E] rounded-2xl p-4 shadow-lg border border-[#2A2448]">
+  <div className="mt-2 bg-[#1A0E2E] rounded-2xl p-4 shadow-lg border border-[#2A2448]">
     <h1 className="text-[#C9C6D6] text-sm mb-2">{title}</h1>
     <p className="text-white text-[14px]">{value}</p>
   </div>
@@ -36,7 +36,7 @@ const ShiftDetails = () => {
           src={Image1}
           alt="Logo"
         />
-        <h2 className="mt-3 text-lg font-semibold">Copper Alley Bar</h2>
+        <h2 className="mt-3 text-[20px] italic font-semibold">Copper Alley Bar</h2>
       </div>
 
       {/* Info Sections */}
@@ -72,7 +72,7 @@ const ShiftDetails = () => {
           Decline Shift
         </button>
 
-        <button className="w-1/2 py-3 rounded-full bg-gradient-to-r from-purple-600 to-purple-400 text-white font-medium">
+        <button className="w-1/2 py-3 rounded-full bg-gradient-to-br from-[#822CE7] to-[#BB82FF] text-white font-medium">
           Accept Shift
         </button>
 
