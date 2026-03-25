@@ -4,7 +4,7 @@ import SidBar from "../../components/LayoutComponents/SidBar";
 
 const DashboardLayout = () => {
   return (
-    <div className=" bg-[#0F0B1A] font-nunito">
+    <div className=" bg-[#0F0B1A] font-nunito max-w-4xl m-auto">
       
 
       <div className=" ">
