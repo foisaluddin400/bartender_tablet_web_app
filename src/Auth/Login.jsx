@@ -40,7 +40,7 @@ const Login = () => {
               onChange={handleChange}
               placeholder="Enter Email Address"
               className="w-full px-3 py-2 bg-[#1D1733] border border-[#2A2448] text-white rounded-full focus:outline-none focus:ring-2 focus:ring-[#822CE7] placeholder-white/70"
-              required
+              
             />
           </div>
 
@@ -55,7 +55,7 @@ const Login = () => {
                 onChange={handleChange}
                 placeholder="••••••••"
                 className="w-full px-3 py-2 bg-[#1D1733] border border-[#2A2448] text-white rounded-full focus:outline-none focus:ring-2 focus:ring-[#822CE7] placeholder-white/70"
-                required
+              
               />
               <button
                 type="button"
