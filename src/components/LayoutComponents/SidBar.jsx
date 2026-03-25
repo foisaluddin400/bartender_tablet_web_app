@@ -94,10 +94,10 @@ const SidBar = () => {
           <div key={item.key}>
             <Link
               to={item.link}
-              className={`my-4 py-[10px] px-4 flex items-center cursor-pointer ${
+              className={`my-4 py-[10px] px-4 text-white flex items-center cursor-pointer ${
                 selectedKey === item.key
                   ? "bg-gradient-to-tr from-[#822CE7] to-[#BB82FF] text-white shadow-md mx-3 rounded-lg "
-                  : "hover:bg-gradient-to-tr hover:from-[#822CE7] mx-3 rounded-lg"
+                  : "hover:bg-gradient-to-tr hover:from-[#822CE7] text-white mx-3 rounded-lg"
               }`}
               onClick={(e) => {
                 if (item.children) {

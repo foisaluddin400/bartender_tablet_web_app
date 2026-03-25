@@ -116,9 +116,9 @@ const Header = () => {
                   <div key={item.key}>
                     <Link
                       to={item.link}
-                      className={`my-4 py-[10px] px-4 flex items-center cursor-pointer ${
+                      className={`my-4  py-[10px] px-4 flex items-center cursor-pointer ${
                         selectedKey === item.key
-                          ? "bg-gradient-to-tr from-[#822CE7] to-[#BB82FF] text-white shadow-md mx-3 rounded-full"
+                          ? "bg-gradient-to-tr from-[#822CE7] to-[#BB82FF] hover:text-white text-white shadow-md mx-3 rounded-full"
                           : "hover:bg-gradient-to-tr hover:from-[#822CE7] mx-3 hover:text-white rounded-full text-white bg-[#822CE71A]"
                       }`}
                       onClick={(e) => {
